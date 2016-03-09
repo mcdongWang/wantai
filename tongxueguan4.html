@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>文章页</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/article.css">
+    <script src="http://cdn.bootcss.com/zepto/1.1.6/zepto.min.js"></script>
+    <script src="http://cdn.bootcss.com/vue/1.0.16/vue.min.js"></script>
+</head>
+<body id="vm">
+    <div class="header">
+        <div class="banner">
+            <div class="content">
+                <img class="logo" src="img/logo.png">
+                <img class="qcode" src="img/qcode.png">
+            </div>
+        </div>
+        <div class="nav" :class="xi ? 'xi' : ''">
+            <ul>
+                <template v-for="item in navList" >
+                    <a href="{{navHref[$index]}}">
+                        <li v-text="item"></li>
+                    </a>
+                </template>
+            </ul>
+        </div>
+    </div>
+    <div class="article-content" id="article">
+        <div class="main">
+            <h1 class="title">阳光天使童学馆成立啦！</h1>
+            <p>阳光天使童学馆成立！分天津滨海新区和河东区两个场馆。</p>
+            <p>童学馆在创办过程中，我们关注幼儿自身特色发展，以纲要为依据，以四大领域为轴线，幼儿在健康、语言、艺术、社会四大领域进行启蒙教育，为幼儿全面发展提供良好的教育环境。</p>
+            <p>童学馆开设的课程有：国学启蒙，蒙氏教学，才艺启蒙，使幼儿德、智、体、美全面发展，让宝宝赢在起跑线上。</p>
+            <p>童学馆的目标：少儿国学（人文素质）教育领导品牌。秉承“童蒙养正”理念，遵循“预存智慧，浸润心灵”的长线教育观，提倡“国际化前先扎根”，做“中国人的人文启蒙”，以中西合璧的体验互动式教学法，开发儿童心智潜能，教出君子淑女，打造未来领袖。</p>
+            <p> 童学馆的办馆理念：以人为本，师幼共同成长，和谐发展。</p>
+            <p>童学馆的办馆宗旨：一切为了孩子，养育为本，服务为先，特色迎新。</p>
+            <!-- <img src="img/slide2.jpg"> -->
+        </div>
+    </div>
+    <footer></footer>
+</body>
+<script type="text/javascript">
+    var slideInterval
+    var vm = new Vue({
+        el: '#vm',
+        data: {
+            navList:['网站首页', '中心简介', '招生动态', '教学展示', '童学馆', '国学养生', '联系我们'],navHref: ['index.html', 'zxjj.html', 'zsdt.html', 'jxzs.html', 'txt.html', 'gxys.html', 'lxwm.html'],
+            slideList: [{
+                title : 'lalala',
+                text : 'owowowoowowowowowowowowowowowowowowowoow',
+                img : 'img/slide1.jpg'
+            },{
+                title : 'lalala',
+                text : 'asdfasdf',
+                img : 'img/slide2.jpg'
+            },{
+                title : 'lalala',
+                text : 'oasdbow',
+                img : 'img/slide3.jpg'
+            },{
+                title : 'lalala',
+                text : 'owow3455675643owowoow',
+                img : 'img/slide4.jpg'
+            }],
+            slideIndex : 0,
+            xi : false
+        },
+        methods: {
+            slideChange: function(data){
+                this.slideIndex = data
+                clearInterval(slideInterval)
+                slideInterval = setInterval(function(){
+                    vm.slideIndex = (vm.slideIndex + 1) % vm.slideList.length
+                }, 3000)
+            }
+        },
+        ready: function(){
+            slideInterval = setInterval(function(){
+                vm.slideIndex = (vm.slideIndex + 1) % vm.slideList.length
+            }, 3000)
+        }
+    })
+
+    window.onscroll=function(){
+        var a = document.body.scrollTop
+        if(vm.xi){
+            if(a <= 95){
+                vm.xi = false
+            }
+        }else{
+            if(a >= 95){
+                vm.xi = true
+            }
+        }
+    }
+</script>
+</html>

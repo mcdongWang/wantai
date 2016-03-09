@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>文章页</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/article.css">
+    <script src="http://cdn.bootcss.com/zepto/1.1.6/zepto.min.js"></script>
+    <script src="http://cdn.bootcss.com/vue/1.0.16/vue.min.js"></script>
+</head>
+<body id="vm">
+    <div class="header">
+        <div class="banner">
+            <div class="content">
+                <img class="logo" src="img/logo.png">
+                <img class="qcode" src="img/qcode.png">
+            </div>
+        </div>
+        <div class="nav" :class="xi ? 'xi' : ''">
+            <ul>
+                <template v-for="item in navList" >
+                    <a href="{{navHref[$index]}}">
+                        <li v-text="item"></li>
+                    </a>
+                </template>
+            </ul>
+        </div>
+    </div>
+    <div class="article-content" id="article">
+        <div class="main">
+            <h1 class="title">学费价格</h1>
+            <p class="zhaiyao">经典取证班：1990元 </p>
+            <p class="zhaiyao">实战全能班：3888元 </p>
+            <p>11月31日之前缴费优惠300元</p>
+            <p>12月15日之前缴费优惠200元</p>
+            <p>12月31日之前缴费优惠100元</p>
+            <p class="zhaiyao">注：以上价格包括培训费、考务费、教材费、内部应考资料。</p>
+        </div>
+    </div>
+    <footer></footer>
+</body>
+<script type="text/javascript">
+    var slideInterval
+    var vm = new Vue({
+        el: '#vm',
+        data: {
+            navList:['网站首页', '中心简介', '招生动态', '教学展示', '童学馆', '国学养生', '联系我们'],navHref: ['index.html', 'zxjj.html', 'zsdt.html', 'jxzs.html', 'txt.html', 'gxys.html', 'lxwm.html'],
+            slideList: [{
+                title : 'lalala',
+                text : 'owowowoowowowowowowowowowowowowowowowoow',
+                img : 'img/slide1.jpg'
+            },{
+                title : 'lalala',
+                text : 'asdfasdf',
+                img : 'img/slide2.jpg'
+            },{
+                title : 'lalala',
+                text : 'oasdbow',
+                img : 'img/slide3.jpg'
+            },{
+                title : 'lalala',
+                text : 'owow3455675643owowoow',
+                img : 'img/slide4.jpg'
+            }],
+            slideIndex : 0,
+            xi : false
+        },
+        methods: {
+            slideChange: function(data){
+                this.slideIndex = data
+                clearInterval(slideInterval)
+                slideInterval = setInterval(function(){
+                    vm.slideIndex = (vm.slideIndex + 1) % vm.slideList.length
+                }, 3000)
+            }
+        },
+        ready: function(){
+            slideInterval = setInterval(function(){
+                vm.slideIndex = (vm.slideIndex + 1) % vm.slideList.length
+            }, 3000)
+        }
+    })
+
+    window.onscroll=function(){
+        var a = document.body.scrollTop
+        if(vm.xi){
+            if(a <= 95){
+                vm.xi = false
+            }
+        }else{
+            if(a >= 95){
+                vm.xi = true
+            }
+        }
+    }
+</script>
+</html>

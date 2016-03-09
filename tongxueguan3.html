@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>文章页</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/article.css">
+    <script src="http://cdn.bootcss.com/zepto/1.1.6/zepto.min.js"></script>
+    <script src="http://cdn.bootcss.com/vue/1.0.16/vue.min.js"></script>
+</head>
+<body id="vm">
+    <div class="header">
+        <div class="banner">
+            <div class="content">
+                <img class="logo" src="img/logo.png">
+                <img class="qcode" src="img/qcode.png">
+            </div>
+        </div>
+        <div class="nav" :class="xi ? 'xi' : ''">
+            <ul>
+                <template v-for="item in navList" >
+                    <a href="{{navHref[$index]}}">
+                        <li v-text="item"></li>
+                    </a>
+                </template>
+            </ul>
+        </div>
+    </div>
+    <div class="article-content" id="article">
+        <div class="main">
+            <h1 class="title">佛光山游记</h1>
+            <p class="zhaiyao">佛光山游记 佛光山，是中外闻名的佛教胜地，有“南台佛都”之号。是由星云法师率领弟子创建的。创建于民国56年，其寺庙建筑宏伟，并设立了佛教大学，以推广佛法，佛光山是台湾最大的佛教道场。为提倡“人间佛教”之道，一砖一瓦建立起来的佛光山，成为台湾信众最多、最富盛名的佛教圣地。 因此，国学养生俱乐部首席讲师傅东文老师欲将其定为外出游学之地，一行十人前去考察。</p>
+            <p>佛光山，是中外闻名的佛教胜地，有“南台佛都”之号。是由星云法师率领弟子创建的。创建于民国56年，其寺庙建筑宏伟，并设立了佛教大学，以推广佛法，佛光山是台湾最大的佛教道场。为提倡“人间佛教”之道，一砖一瓦建立起来的佛光山，成为台湾信众最多、最富盛名的佛教圣地。</p>
+            <p>因此，国学养生俱乐部首席讲师傅东文老师欲将其定为外出游学之地，一行十人前去考察。</p>
+            <p>上午到达佛光山，下榻于麻竹园，麻竹园位于朝山会馆旁，这个地方原本是个深不见底的沟渠，是运载五千多部卡车的沙石填铺才得以完成，而麻竹园的取名，是纪念佛光山开山以前，此地的地名。</p>
+            <p>午饭，用餐于朝山会馆，朝山会馆味佛光山对外的客堂，专供贵客朝山食宿之用。</p>
+            <p>午饭后，休憩片刻，开始游览佛光山。</p>
+            <p>佛光山法师热情接待，先于觉华园介绍佛光山背景及来历。</p>
+            <p>不二门，佛光山的“不二门”，取自于《维摩经》的“不二法门”之意。在《维摩经》记载，有一天，维摩居士示疾，文殊菩萨率领诸大菩萨前往探病，双方就在维摩丈室里讨论起“不二法门”之意来。首先，在场的三十一位菩萨，各就所见，提出发言。最后文殊菩萨说：“照我的见解，于一切法无言无说，无示无识，离诸问答，这才是入不二法门。”文殊菩萨说后，反问维摩诘说：“现在换我来请问你，菩萨是怎样进入不二法门的。”此时维摩诘默然无对，众皆愕然，唯有文殊菩萨智慧超人，懂得此中奥秘，乃向大家说：“善哉！善哉！乃至无有语言文字，是真入不二法门。”</p>
+            <p>法师说，她二十几岁出家，今年不到五十多岁，从进入佛光山一直到今天，并且毕业于佛光山学院。</p>
+            <p>穿过一片竹林来到大悲殿，大悲殿主祀观世音大士,庙堂四周,嵌有观音像万余尊。</p>
+            <p>法师悄悄告诉我们说，这是女和尚的宿舍，一般人不能外进。</p>
+            <p>最后，我们来到佛光山的大雄宝殿，是山中最大的殿宇，占地1800坪，内供三尊大佛皆高二丈余，崇伟肃穆；大殿四面墙壁有14，800个小佛龛，在万灯照耀下，使大雄宝殿更显庄严神圣。大雄宝殿内点点烛光映衬的四壁上，共有大大小小约一万五千尊金身佛像，造型精美，表情慈祥端庄。主祀释迦牟尼佛，左边是药师佛，右边是阿弥陀佛。</p>
+            <p>傍晚时分，游览完毕，前去滴水坊用餐，途中看见，聪明灵巧，四个大字，为星云大师亲笔为猴年祝词。其意为聪明，机敏，灵活，巧妙之意。</p>
+            <p>用餐于滴水坊。</p>
+            <p>晚饭结束后，一行人再次来到大雄宝殿体会打坐。</p>
+            <p>一天行程结束，回到麻竹园休息。</p>
+            <!-- <img src="img/slide2.jpg"> -->
+        </div>
+    </div>
+    <footer></footer>
+</body>
+<script type="text/javascript">
+    var slideInterval
+    var vm = new Vue({
+        el: '#vm',
+        data: {
+            navList:['网站首页', '中心简介', '招生动态', '教学展示', '童学馆', '国学养生', '联系我们'],navHref: ['index.html', 'zxjj.html', 'zsdt.html', 'jxzs.html', 'txt.html', 'gxys.html', 'lxwm.html'],
+            slideList: [{
+                title : 'lalala',
+                text : 'owowowoowowowowowowowowowowowowowowowoow',
+                img : 'img/slide1.jpg'
+            },{
+                title : 'lalala',
+                text : 'asdfasdf',
+                img : 'img/slide2.jpg'
+            },{
+                title : 'lalala',
+                text : 'oasdbow',
+                img : 'img/slide3.jpg'
+            },{
+                title : 'lalala',
+                text : 'owow3455675643owowoow',
+                img : 'img/slide4.jpg'
+            }],
+            slideIndex : 0,
+            xi : false
+        },
+        methods: {
+            slideChange: function(data){
+                this.slideIndex = data
+                clearInterval(slideInterval)
+                slideInterval = setInterval(function(){
+                    vm.slideIndex = (vm.slideIndex + 1) % vm.slideList.length
+                }, 3000)
+            }
+        },
+        ready: function(){
+            slideInterval = setInterval(function(){
+                vm.slideIndex = (vm.slideIndex + 1) % vm.slideList.length
+            }, 3000)
+        }
+    })
+
+    window.onscroll=function(){
+        var a = document.body.scrollTop
+        if(vm.xi){
+            if(a <= 95){
+                vm.xi = false
+            }
+        }else{
+            if(a >= 95){
+                vm.xi = true
+            }
+        }
+    }
+</script>
+</html>

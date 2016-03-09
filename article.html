@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>文章页</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/article.css">
+    <script src="http://cdn.bootcss.com/zepto/1.1.6/zepto.min.js"></script>
+    <script src="http://cdn.bootcss.com/vue/1.0.16/vue.min.js"></script>
+</head>
+<body id="vm">
+    <div class="header">
+        <div class="banner">
+            <div class="content">
+                <img class="logo" src="img/logo.png">
+                <img class="qcode" src="img/qcode.png">
+            </div>
+        </div>
+        <div class="nav" :class="xi ? 'xi' : ''">
+            <ul>
+                <template v-for="item in navList" >
+                    <a href="{{navHref[$index]}}">
+                        <li v-text="item"></li>
+                    </a>
+                </template>
+            </ul>
+        </div>
+    </div>
+    <div class="article-content" id="article">
+        <div class="main">
+            <h1 class="title">郭老师</h1>
+            <p class="zhaiyao">全国武术冠军，国家高级营养师</p>
+            <p>李嗣涔(1952年8月13日-)，1952年出生于台湾，祖籍河南省济源市，台湾大学校长，是台湾地区电机工程学学者，主要研究半导体领域，为台湾地区早期研究非晶矽的学者，并为国际电机电子工程学会会士(IEEE Fellow)，在该领域有一定声望。后来应台湾地区“国家科学委员会主委”陈履安等人的邀请转入气功、特异功能方面的研究，而使其学术地位充满争议性。</p>
+            <img src="img/slide2.jpg">
+            <p>李嗣涔为台湾大学电机系、电子所固态组、电机所医工组教授，并担任几个社团的指导教授，先后有台大星舰学院、台大特异功能社。在台大校务行政方面，其于1996年到2002年间担任“国立”台湾大学教务长，2005年通过台湾地区“教育部”遴选，担任“国立”台湾大学校长。目前在做人体潜能方面的研究。</p>
+        </div>
+    </div>
+    <footer></footer>
+</body>
+<script type="text/javascript">
+    var slideInterval
+    var vm = new Vue({
+        el: '#vm',
+        data: {
+            navList:['网站首页', '中心简介', '招生动态', '教学展示', '童学馆', '国学养生', '联系我们'],navHref: ['index.html', 'zxjj.html', 'zsdt.html', 'jxzs.html', 'txt.html', 'gxys.html', 'lxwm.html'],
+            slideList: [{
+                title : 'lalala',
+                text : 'owowowoowowowowowowowowowowowowowowowoow',
+                img : 'img/slide1.jpg'
+            },{
+                title : 'lalala',
+                text : 'asdfasdf',
+                img : 'img/slide2.jpg'
+            },{
+                title : 'lalala',
+                text : 'oasdbow',
+                img : 'img/slide3.jpg'
+            },{
+                title : 'lalala',
+                text : 'owow3455675643owowoow',
+                img : 'img/slide4.jpg'
+            }],
+            slideIndex : 0,
+            xi : false
+        },
+        methods: {
+            slideChange: function(data){
+                this.slideIndex = data
+                clearInterval(slideInterval)
+                slideInterval = setInterval(function(){
+                    vm.slideIndex = (vm.slideIndex + 1) % vm.slideList.length
+                }, 3000)
+            }
+        },
+        ready: function(){
+            slideInterval = setInterval(function(){
+                vm.slideIndex = (vm.slideIndex + 1) % vm.slideList.length
+            }, 3000)
+        }
+    })
+
+    window.onscroll=function(){
+        var a = document.body.scrollTop
+        if(vm.xi){
+            if(a <= 95){
+                vm.xi = false
+            }
+        }else{
+            if(a >= 95){
+                vm.xi = true
+            }
+        }
+    }
+</script>
+</html>

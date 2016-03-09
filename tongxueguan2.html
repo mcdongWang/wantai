@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>文章页</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/article.css">
+    <script src="http://cdn.bootcss.com/zepto/1.1.6/zepto.min.js"></script>
+    <script src="http://cdn.bootcss.com/vue/1.0.16/vue.min.js"></script>
+</head>
+<body id="vm">
+    <div class="header">
+        <div class="banner">
+            <div class="content">
+                <img class="logo" src="img/logo.png">
+                <img class="qcode" src="img/qcode.png">
+            </div>
+        </div>
+        <div class="nav" :class="xi ? 'xi' : ''">
+            <ul>
+                <template v-for="item in navList" >
+                    <a href="{{navHref[$index]}}">
+                        <li v-text="item"></li>
+                    </a>
+                </template>
+            </ul>
+        </div>
+    </div>
+    <div class="article-content" id="article">
+        <div class="main">
+            <h1 class="title">佛光山游记--佛陀纪念馆</h1>
+            <p class="zhaiyao">佛陀纪念馆</p>
+            <p>佛陀纪念馆大门，该大门黄墙红顶，彰显中国古典建筑风格特征，门厅的金黄色琉璃瓦挂着一个匾，上书“礼敬大厅”。</p>
+            <p>出门后才进入佛陀纪念馆的主题，只见千米之外的正前方是端坐在椭圆形深褐色莲花宝座之上的如来佛祖，其实，佛光大佛是佛陀纪念馆的最后一座建筑物，但是因为它通体镀金，又位于整个建筑体的最高端，在风和日丽和蓝天白云的映照下金光闪闪，所以一走出敬礼大厅首先被吸引的就是佛光大佛。</p>
+            <p>在通往这个巨型佛像和纪念馆的道路两侧，各有四组对称的高大佛塔，被称为“八塔”，分别名为：一教、二众、三好、四给、五和、六度、七诫、八道，每个塔的基座有客堂和简报室，提供茶水、各种咨询服务，其中，二众塔设有三好儿童馆，借由互动3D剧场推广“三好”运动，所谓“三好”即星云法师倡导的“存好心、说好话、做好事”；五和塔设有喜庆之家，提供佛化婚礼、弥月礼、庆生等服务；六度塔设有星云大师一笔字展，其基座上设有“天宫”，珍藏各种佛教文物。</p>
+            <p>本馆是佛陀纪念馆的中心，其塔身为覆钵式，即像是一个倒扣的钵，内设三殿堂、四常设展、美术馆，还有可以容纳2000多人的大觉堂。它的基座四隅伫立着四圣塔，塔身壁龛有浮雕图像，塔内各供奉大悲观世音菩萨、大智文殊师利菩萨、大愿地藏王菩萨和大行普贤菩萨造像，象征佛教的苦集灭道、信解行证及四弘誓愿。
+
+</p>
+            <p>在电影厅我们观看了3D的动画片《佛陀的一生》</p>
+            <p>此为大觉堂卧佛</p>
+            <p>午饭在滴水阁用餐。</p>
+            <p>此行的感受是，星云大师将传统佛教的传播与世俗化的大众生活相结合，这是一种比较有效的传播方式。佛光山之行使我感受到了佛教传播的改革与创新，这里现代化的硬件设施和宏大的规模是在大陆的寺庙所看不到的。</p>
+            <!-- <img src="img/slide2.jpg"> -->
+        </div>
+    </div>
+    <footer></footer>
+</body>
+<script type="text/javascript">
+    var slideInterval
+    var vm = new Vue({
+        el: '#vm',
+        data: {
+            navList:['网站首页', '中心简介', '招生动态', '教学展示', '童学馆', '国学养生', '联系我们'],navHref: ['index.html', 'zxjj.html', 'zsdt.html', 'jxzs.html', 'txt.html', 'gxys.html', 'lxwm.html'],
+            slideList: [{
+                title : 'lalala',
+                text : 'owowowoowowowowowowowowowowowowowowowoow',
+                img : 'img/slide1.jpg'
+            },{
+                title : 'lalala',
+                text : 'asdfasdf',
+                img : 'img/slide2.jpg'
+            },{
+                title : 'lalala',
+                text : 'oasdbow',
+                img : 'img/slide3.jpg'
+            },{
+                title : 'lalala',
+                text : 'owow3455675643owowoow',
+                img : 'img/slide4.jpg'
+            }],
+            slideIndex : 0,
+            xi : false
+        },
+        methods: {
+            slideChange: function(data){
+                this.slideIndex = data
+                clearInterval(slideInterval)
+                slideInterval = setInterval(function(){
+                    vm.slideIndex = (vm.slideIndex + 1) % vm.slideList.length
+                }, 3000)
+            }
+        },
+        ready: function(){
+            slideInterval = setInterval(function(){
+                vm.slideIndex = (vm.slideIndex + 1) % vm.slideList.length
+            }, 3000)
+        }
+    })
+
+    window.onscroll=function(){
+        var a = document.body.scrollTop
+        if(vm.xi){
+            if(a <= 95){
+                vm.xi = false
+            }
+        }else{
+            if(a >= 95){
+                vm.xi = true
+            }
+        }
+    }
+</script>
+</html>

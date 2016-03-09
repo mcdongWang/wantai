@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>童学馆</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body id="vm">
+    <div class="header">
+        <div class="banner">
+            <div class="content">
+                <img class="logo" src="img/logo.png">
+                <img class="qcode" src="img/qcode.png">
+            </div>
+        </div>
+        <div class="nav" :class="xi ? 'xi' : ''">
+            <ul>
+                <template v-for="item in navList" >
+                    <a href="{{navHref[$index]}}">
+                        <li v-text="item"></li>
+                    </a>
+                </template>
+            </ul>
+        </div>
+    </div>
+    <div class="warp">
+        <div class="slides">
+            <div class="slideShow">
+                <img :src="slideList[slideIndex].img">
+                <div class="content">
+                    <p class="title" v-text="slideList[slideIndex].title"></p>
+                    <p class="text" v-text="slideList[slideIndex].text"></p>
+                </div>
+            </div>
+            <div class="slideNav">
+                <img v-for="item in slideList" :class="slideIndex == $index ? 'hover' : ''" :src="item.img" @click="slideChange($index)">
+            </div>
+        </div>
+        <div class="left">
+            <div class="bigTitle">
+                <p class="title">中心简介</p>
+            </div>
+            <div class="textArea">
+                <p class="text">北京万泰教育集团，中国处于领导地位的教育培训机构，儿童早期教育领域的开拓者和领航企业。1995始至今在中国创办近100所教育分支机构，2008年融资入股童学馆。历经十余年发展，万泰教育已成为一家集教学、教研及教育产品开发于一体的综合性教育机构。</p>
+                <img class="conRT" src="img/connerRT.gif">
+                <img class="conRB" src="img/connerRB.gif">
+            </div>
+            <div class="bigTitle">
+                <p class="title">教学展示</p>
+            </div>
+            <div class="textArea">
+                <img class="production" src="img/photo.jpg">
+                <img class="production" src="img/photo.jpg">
+                <img class="production" src="img/photo.jpg">
+                <img class="production" src="img/photo.jpg">
+                <img class="production" src="img/photo.jpg">
+                <img class="production" src="img/photo.jpg">
+            </div>
+            <div class="bigTitle">
+                <p class="title">名师专访</p>
+            </div>
+            <div class="textArea">
+                <div class="teacher">
+                    <img class="photo" src="img/photo.jpg">
+                    <div class="rightText">
+                        <a href="teacher1.html"><p class="name">李嗣涔</p></a>
+                        <p class="jianli">台湾大学校长，阳光天使童学馆特约顾问</p>
+                    </div>
+                </div>
+                <div class="teacher">
+                    <img class="photo" src="img/photo.jpg">
+                    <div class="rightText">
+                        <a href="teacher2.html"><p class="name">傅老师</p></a>
+                        <p class="jianli">国学养生俱乐部首席讲师，天津市传统文化产业发展协会专家委员。</p>
+                    </div>
+                </div>
+                <img class="conRT" src="img/connerRT.gif">
+                <img class="conRB" src="img/connerRB.gif">
+            </div>
+        </div>
+        <div class="right">
+            <div class="bigTitle">
+                <p class="title">招生动态</p>
+            </div>
+            <ul class="list">
+                <a href="2016gxysjlbyxjh.html"><li>2016国学养生俱乐部游学计划</li></a>
+                <a href="2016ggyyspx.html"><li>2016公共营养师培训火热招生中</li></a>
+            </ul>
+            <div class="bigTitle">
+                <p class="title">童学馆</p>
+            </div>
+            <ul class="list">
+                <a href="tongxueguan1.html"><li>台湾大学李嗣涔教授担任童学馆特约名誉顾问</li></a>
+                <a href="tongxueguan2.html"><li>佛光山游记--佛陀纪念馆</li></a>
+                <a href="tongxueguan3.html"><li>佛光山游记</li></a>
+                <a href="tongxueguan4.html"><li>阳光天使童学馆成立啦！</li></a>
+            </ul>
+            <div class="bigTitle">
+                <p class="title">营养师考级</p>
+            </div>
+            <ul class="list">
+                <a href="ggyyskhpx.html"><li>公共营养师考核培训</li></a>
+                <a href="khfzyzgrz.html"><li>考核发证与资格认证</li></a>
+                <a href="bmfsjxxdd.html"><li>报名方式及学习地点</li></a>
+                <a href="bmsxcl.html"><li>报名所需资料</li></a>
+                <a href="xfjg.html"><li>学费价格</li></a>
+                <a href="sksj.html"><li>上课时间</li></a>
+            </ul>
+            <div class="bigTitle">
+                <p class="title">营养师考级</p>
+            </div>
+            <ul class="list">
+                <a href=""><li>暂无内容</li></a>
+                <a href=""><li>暂无内容</li></a>
+                <a href=""><li>暂无内容</li></a>
+                <a href=""><li>暂无内容</li></a>
+                <a href=""><li>暂无内容</li></a>
+                <a href=""><li>暂无内容</li></a>
+            </ul>
+        </div>
+    </div>
+    <footer></footer>
+</body>
+<script src="http://cdn.bootcss.com/zepto/1.1.6/zepto.min.js"></script>
+<script src="http://cdn.bootcss.com/vue/1.0.16/vue.min.js"></script>
+<script src="./js/index.js"></script>
+</html>

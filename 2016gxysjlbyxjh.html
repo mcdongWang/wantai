@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>文章页</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/article.css">
+    <script src="http://cdn.bootcss.com/zepto/1.1.6/zepto.min.js"></script>
+    <script src="http://cdn.bootcss.com/vue/1.0.16/vue.min.js"></script>
+</head>
+<body id="vm">
+    <div class="header">
+        <div class="banner">
+            <div class="content">
+                <img class="logo" src="img/logo.png">
+                <img class="qcode" src="img/qcode.png">
+            </div>
+        </div>
+        <div class="nav" :class="xi ? 'xi' : ''">
+            <ul>
+                <template v-for="item in navList" >
+                    <a href="{{navHref[$index]}}">
+                        <li v-text="item"></li>
+                    </a>
+                </template>
+            </ul>
+        </div>
+    </div>
+    <div class="article-content" id="article">
+        <div class="main">
+            <h1 class="title">2016国学养生俱乐部游学计划</h1>
+            <p class="zhaiyao">阴阳尚需合德，贵在道法自然。神气浩荡太极赋，宝典技法悉心传！</p>
+            <p>《道德经》是古今中外，宇宙万物存在的根本经典，通晓《道德经》能激活人类的根本智慧，并能和谐万物。一切的存在皆有存在的规律，没有哪个作品比身体更伟大，他是浓缩的宇宙之精华，了解了自身，你就会通读宇宙，你会自信，会安然，会祥和，会睿智，会大爱，从生命的本源入手，深刻诠释生命成长的根本规律。</p>
+            <p>国学养生的内容会侧重于讲解国学养生的智慧与实操方法。内容涵盖儒、释、道、中医、阴阳、风水、五行、食疗等方面。本寻三大原则：天地人合一原则；阴阳平衡原则；五行相生相克原则。风水理论实际上就是地球物理学、水文地质学、宇宙星体学、气象学、环境景观学、建筑学、生态学以及人体生命信息学等学科综合一体的一门自然科学。</p>
+            <p>在过去的2015年，我们俱乐部跟随付老师游学到石家庄，北京颐年山庄，北京劲松，蓟县毛家峪，海德怡温泉等等，随着二十四节气的变化，仁义礼智信的修养五脏，天德能量的运用和传播，俱乐部成员收获颇丰，健康的硕果大丰收。</p>
+            <p>接下来，让我们的2016继续修行，携手走过！</p>
+            <p>一月份将会去到台湾的佛光山：</p>
+            <p>佛光山在台湾高雄县大树乡东北区，是一家闻名中外的佛教胜地，有“南台佛都”的美称。佛光山的特惠政策是免费入园，是台湾最大的佛教道场，“人间佛道”是创办人星云法师提倡的道教，一砖一瓦建立起佛光山！</p>
+            <p>二月份将会去到武清区：</p>
+            <p>武清区位于天津西北部，地处京津两市之间，自古以来即为交通要道，素有“京津走廊” 之称。一起领略下家门口的文化、故事、风景吧！</p>
+            <p>四月份将会去到武夷山：</p>
+            <p>武夷山是典型的丹霞地貌，亿万年大自然的鬼斧神工，形成了奇峰峭拔、秀水潆洄、碧水丹峰、风光绝胜的美景，古人说它“水有三三胜，峰有六六奇”，有“奇秀甲东南”之美誉！</p>
+            <p>武夷山人家家户户都忙着采茶、做茶，空气中到处都弥漫着茶的清香。让我们一起在品味茶之清香，茶文化之余修习太极!</p>
+            <p>六月份将去到蓟县：</p>
+            <p>蓟县素有天津“后花园”之称，“始于汉、兴于唐、盛于清”，为历代帝王将相、文人墨客竞游之地。这里物华天宝、人杰地灵，自然景观秀美，人文古迹众多，集古城、雄关、名山、秀水、奇石、幽林于一身，是旅游观光、休闲度假的理想之地。这样人杰地灵的地方岂能不练太极！</p>
+            <p>八月份将再次去到台湾佛光山：</p>
+            <p>秉持一颗善念的心，接受心灵的洗礼，带来深度的心灵震撼！</p>
+            <p>十月份将会去到龙虎山天师府：</p>
+            <p>麒麟殿上神仙客 龙虎山中宰相家</p>
+            <p>道贯古今包宇宙 法遵自然驭人神</p>
+            <p>这一幅幅对联，包含着易经，德道经的深刻含义，学得，悟道，修身，养性！</p>
+            <p>十二月份将感受温泉的洗礼：</p>
+            <p>阴阳尚需合德，贵在道法自然。神气浩荡太极赋，宝典技法悉心传！</p>
+            <p>俱乐部致力于会员间营造团结、友爱、平等、宽容、互助的氛围，增进感情，让大家在工作上互相帮助，在生活中共享快乐，构建和谐俱乐部。本俱乐部定位立足传统国学，发扬传统养生文化，通过儒释道文化的运用，宣传国学养生智慧，帮助大家掌握天人合一，道法自然的方法，远离疾病，拥抱健康。国学养生俱乐部自创建以来，一如既往的秉承公益性质传播传统国学养生智慧。借此感谢付老师的大爱起航，感谢国学养生俱乐部的志愿者提供更多的公益服务，感谢俱乐部成员的积极参与和广大建议。2016年，会组织更多的线下线上的沙龙和公益讲座，便于大家交流和聚会。</p>
+            <p>祝福所有俱乐部成员及家人在2016年，聪敏灵巧，吉祥快乐，幸福安康！</p>
+        </div>
+    </div>
+    <footer></footer>
+</body>
+<script type="text/javascript">
+    var slideInterval
+    var vm = new Vue({
+        el: '#vm',
+        data: {
+            navList:['网站首页', '中心简介', '招生动态', '教学展示', '童学馆', '国学养生', '联系我们'],navHref: ['index.html', 'zxjj.html', 'zsdt.html', 'jxzs.html', 'txt.html', 'gxys.html', 'lxwm.html'],
+            slideList: [{
+                title : 'lalala',
+                text : 'owowowoowowowowowowowowowowowowowowowoow',
+                img : 'img/slide1.jpg'
+            },{
+                title : 'lalala',
+                text : 'asdfasdf',
+                img : 'img/slide2.jpg'
+            },{
+                title : 'lalala',
+                text : 'oasdbow',
+                img : 'img/slide3.jpg'
+            },{
+                title : 'lalala',
+                text : 'owow3455675643owowoow',
+                img : 'img/slide4.jpg'
+            }],
+            slideIndex : 0,
+            xi : false
+        },
+        methods: {
+            slideChange: function(data){
+                this.slideIndex = data
+                clearInterval(slideInterval)
+                slideInterval = setInterval(function(){
+                    vm.slideIndex = (vm.slideIndex + 1) % vm.slideList.length
+                }, 3000)
+            }
+        },
+        ready: function(){
+            slideInterval = setInterval(function(){
+                vm.slideIndex = (vm.slideIndex + 1) % vm.slideList.length
+            }, 3000)
+        }
+    })
+
+    window.onscroll=function(){
+        var a = document.body.scrollTop
+        if(vm.xi){
+            if(a <= 95){
+                vm.xi = false
+            }
+        }else{
+            if(a >= 95){
+                vm.xi = true
+            }
+        }
+    }
+</script>
+</html>

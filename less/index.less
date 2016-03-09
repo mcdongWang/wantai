@@ -1,0 +1,223 @@
+body{
+    width: 100%;
+    height: auto;
+    background-color: #fffeeb;
+    color: #ffffff;
+}
+ul{
+    list-style: none;
+}
+*{
+    color: #ffffff;
+}
+footer{
+    background-image: url(../img/footerBg.gif);
+    height: 95px;
+    background-position: center;
+}
+#vm .header .xi{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+    width: 100%;
+}
+.header{
+    min-width: 1000px;
+    .banner{
+        background-image: url(../img/bannerBg.gif);
+        height: 95px;
+        background-position: center;
+        .content{
+            min-width: 1000px;
+            width: 1000px;
+            height: 95px;
+            margin: 0 auto;
+            .logo{
+                padding-top: 21px;
+                height: 53px;
+            }
+            .qcode{
+                width: 53px;
+                height: 53px;
+                padding-top: 21px;
+                float: right;
+            }
+        }
+    }
+    .nav{
+        position: absolute;
+        top: 95px;
+        width: 100%;
+        z-index: 2;
+        background-color: #C0130B;
+        height: 48px;
+        ul{
+            width: 1000px;
+            margin: 0 auto;
+            font-size: 20px;
+            line-height: 48px;
+            a{
+                width: 140px;
+                display: inline-block;
+                li{
+                    color: #ffffff;
+                    display: inline-block;
+                    width: 140px;
+                    text-align: center;
+                    &:hover{
+                        color: #ffd42a;
+                    }
+                }
+            }
+        }
+    }
+}
+.bigTitle{
+    margin-top: 30px;
+    border-left: 5px solid #C0130B;
+    margin-bottom: 15px;
+    .title{
+        padding-left: 20px;
+        color: #C0130B;
+        font-size: 20px;
+        line-height: 40px;
+        font-weight: bolder;
+    }
+}
+.textArea{
+    margin-top: 10px;
+    border: 1px solid #d1b08e;
+    width: 698px;
+    position: relative;
+    .production{
+        vertical-align: top;
+        width: 211px;
+        padding-top: 14px;
+        padding-left: 14px;
+        &:nth-last-child(1){
+            padding-bottom: 14px;
+        }
+    }
+    .text{
+        padding: 30px;
+        font-size: 16px;
+        line-height: 32px;
+    }
+    .conRT{
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+    .conRB{
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+    }
+    .teacher{
+        padding: 20px;
+        .photo{
+            vertical-align: top;
+            width: 211px;
+        }
+        .rightText{
+            display: inline-block;
+            padding: 30px;
+            .name{
+                font-size: 20px;
+                font-weight: bolder;
+            }
+            .jianli{
+                font-size: 16px;
+                width: 380px;
+                line-height: 23px;
+                padding-top: 20px;
+            }
+        }
+    }
+}
+.warp{
+    font-size: 0px;
+    width: 1000px;
+    min-width: 1000px;
+    margin: 0 auto;
+    .slides{
+        margin-top: 48px;
+        font-size: 0;
+        .slideShow{
+            width: 800px;
+            display: inline-block;
+            position: relative;
+            img{
+                width: 100%;
+                height: 400px;
+            }
+            .content{
+                font-size: 20px;
+                background-color: rgba(192, 19, 11, 0.6);
+                color: #ffffff;
+                height: 100px;
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                .title{
+                    color: #ffffff;
+                    font-weight: bolder;
+                    font-size: 30px;
+                    padding: 10px 30px;
+                }
+                .text{
+                    color: #ffffff;
+                    padding: 10px 30px;
+                }
+            }
+        }
+        .slideNav{
+            font-size: 0;
+            width: 200px;
+            display: inline-block;
+            img{
+                opacity: 0.4;
+                width: 100%;
+                height: 100px;
+                &:hover{
+                    opacity: 1;
+                }
+            }
+            .hover{
+                opacity: 1;
+            }
+        }
+    }
+    .left{
+        width: 700px;
+        display: inline-block;
+    }
+    .right{
+        width: 270px;
+        margin-left: 30px;
+        display: inline-block;
+        font-size: 14px;
+        vertical-align: top;
+        .list{
+
+            background-image: url(../img/connerRT.gif);
+            background-position: 98% 5px;
+            border: 1px solid #d1b08e;
+            padding: 10px;
+            li{
+                .one();
+                margin-top: 5px;
+                line-height: 25px;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+    }
+}
+.one(){
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>文章页</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/article.css">
+    <script src="http://cdn.bootcss.com/zepto/1.1.6/zepto.min.js"></script>
+    <script src="http://cdn.bootcss.com/vue/1.0.16/vue.min.js"></script>
+</head>
+<body id="vm">
+    <div class="header">
+        <div class="banner">
+            <div class="content">
+                <img class="logo" src="img/logo.png">
+                <img class="qcode" src="img/qcode.png">
+            </div>
+        </div>
+        <div class="nav" :class="xi ? 'xi' : ''">
+            <ul>
+                <template v-for="item in navList" >
+                    <a href="{{navHref[$index]}}">
+                        <li v-text="item"></li>
+                    </a>
+                </template>
+            </ul>
+        </div>
+    </div>
+    <div class="article-content" id="article">
+        <div class="main">
+            <h1 class="title">公共营养师考核培训</h1>
+            <p class="zhaiyao">什么是公共营养师？公共营养师是做什么的？</p>
+            <p>职业概况：</p>
+            <p>公共营养师是国家劳动部颁布第4批新职业之一，是应社会、市场的需要而产生的职业技能人才，指接受专业知识技能培训，通过国家职业资格考试认证，取得从业资格，从事营养咨询、营养测评、营养指导、营养宣教、营养管理以及从事营养教学与科研工作的特殊职业者。医院、学校、幼儿园、宾馆、饭店、运动队、食品企业、健身俱乐部、美容院、社区、营养咨询中心、体检中心、养老院等都对公共营养师有很大的需求。</p>
+            <p>就业前景：</p>
+            <p>1.在诊所从事营养工作</p>
+            <p>负责确诊病人的营养问题，列出保健计划，并监督饮食变化的有效性。通常他们在医院、社区健身中心或保健机构工作。在那里，他们解决体重控制、饮食营养、心脏病、癌症、儿童和老年人等方面的医疗保健需求。</p>
+            <p>2.在餐饮服务业负责管理工作</p>
+            <p>公共营养师加盟到餐饮服务管理行业中，使得不管是一日三餐还是零食小点都能够安全、卫生、成本经济地预备和配送。他们掌管餐饮服务的地点是医院、保健机构、学校、高等院校和商务场所。</p>
+            <p>3.公共营养咨询师</p>
+            <p>为个人、机构、商务组织和媒体提供有关营养、食疗和餐饮服务等方面的专家建议，他们经营的是自己的私人咨询业务。</p>
+            <p>4.在公共领域从事保健工作的公共营养师</p>
+            <p> 他们在公共保健领域工作，了解大众的营养需求，确认社区中的营养问题，并发展营养教育项目和健康促进战略。通过在社会公共保健领域和社会服务部门的工作，公共营养师们向其他公众部门、专家和公众提供讯息与咨询性服务。</p>
+            <p>5.在社区健身中心提供服务的公共营养师</p>
+            <p>这些营养师与社区、个人进行合作，目的在于提高其营养水平，抵御疾病，增进对饮食的关注以及提高个人对健康的控制能力。</p>
+            <p>6.在教育领域工作的公共营养师</p>
+            <p>在饮食学、护理学、食品生产和儿童保健等方面，他们对学生开设营养学、食品化学和餐饮服务管理学等课程。这些课程将普及到小学、中学、高等院校、职业学校和医院。</p>
+            <p>7.在商务领域工作的公共营养师</p>
+            <p>在商务背景下，公共营养师们协助各自的领导进行研究，帮助促进生产，对管理和市场提出专家性意见。在公共营养师们的帮助下，食品和制药公司、市场协会和餐饮服务供应商得以生产出更好的食品和营养产品并投放市场。</p>
+            <p>8.研究性公共营养师</p>
+            <p>少数公共营养师可能向研究项目方面发展，这些项目能从根本上提高医疗护理水平，节约餐饮服务成本。以后，各所大学、保健机构和工业企业将对公共营养师们作的研究给予支持。</p>
+            <p>报考范围：</p>
+            <p>相关职业包括医生、护士、药师、中小学龄前卫生教师、幼儿园保育员、食品加工企业技术和管理人员、社区保健人员、敬老院/老人院保健人员、宾馆酒店饭店烹调配餐人员、保健营销人员、健身教练。</p>
+            <p>证书颁发：</p>
+            <p>学完考试通过颁发国家职业资格证书是劳动者求职、任职、开业的资格凭证。全国通用，无需年审，终生有效！</p>
+        </div>
+    </div>
+    <footer></footer>
+</body>
+<script type="text/javascript">
+    var slideInterval
+    var vm = new Vue({
+        el: '#vm',
+        data: {
+            navList:['网站首页', '中心简介', '招生动态', '教学展示', '童学馆', '国学养生', '联系我们'],navHref: ['index.html', 'zxjj.html', 'zsdt.html', 'jxzs.html', 'txt.html', 'gxys.html', 'lxwm.html'],
+            slideList: [{
+                title : 'lalala',
+                text : 'owowowoowowowowowowowowowowowowowowowoow',
+                img : 'img/slide1.jpg'
+            },{
+                title : 'lalala',
+                text : 'asdfasdf',
+                img : 'img/slide2.jpg'
+            },{
+                title : 'lalala',
+                text : 'oasdbow',
+                img : 'img/slide3.jpg'
+            },{
+                title : 'lalala',
+                text : 'owow3455675643owowoow',
+                img : 'img/slide4.jpg'
+            }],
+            slideIndex : 0,
+            xi : false
+        },
+        methods: {
+            slideChange: function(data){
+                this.slideIndex = data
+                clearInterval(slideInterval)
+                slideInterval = setInterval(function(){
+                    vm.slideIndex = (vm.slideIndex + 1) % vm.slideList.length
+                }, 3000)
+            }
+        },
+        ready: function(){
+            slideInterval = setInterval(function(){
+                vm.slideIndex = (vm.slideIndex + 1) % vm.slideList.length
+            }, 3000)
+        }
+    })
+
+    window.onscroll=function(){
+        var a = document.body.scrollTop
+        if(vm.xi){
+            if(a <= 95){
+                vm.xi = false
+            }
+        }else{
+            if(a >= 95){
+                vm.xi = true
+            }
+        }
+    }
+</script>
+</html>
